@@ -1,2 +1,2 @@
 # dummyproject
-html css codes
+Developing my understanding of HTML, CSS and javascript.
