@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+     body,.jumbotron{ padding: :30px;}
+     .text-giant{font-size: 40px;}
+</style>
+<body>
+  <div class="jumbotron">
+    <h2>How much do pies cost?</h2>
+
+      <form>
+
+        <div class="form-group">
+          <lable for="price">Price</lable>
+          <input type="text" class="form-control" name="price" value="1" min="1 max="10" step="1">
+        </div>
+
+        <div class="form-group">
+          <lable for="quantity">
+            Quantity
+          <br><span class="label label-primary quantity-label">1</span></lable>
+          <input type="range" class="form-control" name="quantity" value="1">
+        </div>
+
+     </form>
+     <div class="text-right text-giant total">$30</div>
+<script>
+      const priceInput = document.querySelector('[name=price]');
+      const quantityInput = document.querySelector('[name=quantity]');
+      const total = document.querySelector('.total');
+      const quantityLabel = document.querySelector('.quantity-label');
+
+
+function calculatePieCost(){
+    const price = priceInput.value;
+    const quantity = quantityInput.value;
+    const cost = price * quantity;
+    console.log(cost);
+    total.innerText ='$'+ cost.toFixed(2);
+}
+
+function updateQuantityLabel(){
+    const quantity = quantityInput.value;
+    quantityLabel.innerText = quantity;
+}
+    priceInput.addEventListener('input', calculatePieCost);
+    quantityInput.addEventListener('input', calculatePieCost);
+    quantityInput.addEventListener('input', updateQuantityLabel);
+</script>
+
+</body>
+</html>
